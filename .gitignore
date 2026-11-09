@@ -18,3 +18,7 @@ outputs/
 # Node (for future scripts)
 node_modules/
 npm-debug.log*
+
+# Python
+__pycache__/
+*.pyc
