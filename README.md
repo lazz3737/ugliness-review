@@ -51,13 +51,13 @@ python scripts/evidence.py kit ui.png renders/ -o evidence
 作为 Agent Skill 安装（Claude Code / Codex / Cursor 等兼容）：
 
 ```bash
-npx skills add https://github.com/<owner>/ugliness-review --skill ugliness-review
+npx skills add https://github.com/lazz3737/ugliness-review --skill ugliness-review
 ```
 
 或手动放进技能目录：
 
 ```bash
-git clone https://github.com/<owner>/ugliness-review.git
+git clone https://github.com/lazz3737/ugliness-review.git
 cp -r ugliness-review ~/.claude/skills/ugliness-review
 ```
 
