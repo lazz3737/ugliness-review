@@ -27,7 +27,7 @@ H 域：像素画（来自首次外部试跑反馈）。
 
 - 修复 `SKILL.md` description 的 YAML 解析错误（冒号需加引号），`npx skills add` 现可正常安装。
 - `copy_lint.py` v0.2.0：跳过 YAML frontmatter、fenced code、inline code；不再扫描 `.json`；避免对代码示例误报。
-- 全库 Markdown 的中文直引号规范为“”（217 行）；修正少量半角标点与空引号示例；复判 D-R5 违规归零。
+- 全库 Markdown 的中文直引号规范为 `“”`（217 行）；修正少量半角标点与空引号示例；复判 D-R5 违规归零。
 - 安装验证：`npx skills add` 全局安装成功，落盘 `~/.claude/skills/ugliness-review`，分发 24 个 agent。
 - 新增案例 003（自审：linter 误报代码为正文）。
 
