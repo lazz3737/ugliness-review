@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.0.0 — 2026-11-09
+
+界面双语 + 编号冻结。
+
+- `README.md` 改为英文主版；新增 `README.zh-CN.md` 中文版；两版顶部互链。
+- 新增 `references/clauses/index.en.md`：全部 82 条条款的编号与英文一句话摘要；条款正文保持中文单源。
+- `SKILL.md` 的 description 改为中英双语，英文触发词覆盖 "pre-delivery review / QA gate / critique"。
+- 条款编号自 v1.0 起冻结：不复用、不改号；弃用标 `(deprecated)`。
+- 仓库可通过 `npx skills add` 与 Claude Code 插件市场两种方式安装。
+
 ## 0.6.0 — 2026-11-09
 
 插件市场打包。
