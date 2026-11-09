@@ -35,6 +35,17 @@
 【修法】统一 roughness ≥ 0.75，与基准件三件套并排复核后再入库
 ```
 
+## 取证脚本
+
+`scripts/evidence.py` 把能自动化的取证做成了一条命令（Python 3.9+，只需 Pillow）：
+
+```bash
+pip install pillow
+python scripts/evidence.py kit ui.png renders/ -o evidence
+```
+
+产出：灰度图、眯眼模糊、剪影墙、64px 缩略墙、主色与饱和面积统计、`manifest.md`。另有 `silhouette` / `thumbs` / `gray` / `blur` / `crop` / `colors` / `grid` / `contrast` 子命令，用法见 `scripts/README.md`。
+
 ## 安装
 
 作为 Agent Skill 安装（Claude Code / Codex / Cursor 等兼容）：
@@ -63,6 +74,9 @@ ugliness-review/
 │       ├── art-scene-props.md      # A 域：道具与场景
 │       ├── ui-layout.md            # B 域：UI 与版式
 │       └── project-params.md       # 项目参数槽
+├── scripts/
+│   ├── evidence.py                 # 取证自动化
+│   └── README.md
 ├── examples/                       # 匿名化判卷样例
 ├── evals/evals.json                # 触发与行为用例
 ├── CHANGELOG.md
@@ -78,7 +92,8 @@ ugliness-review/
 ## 路线图
 
 - [x] v0.1：概念、A/B 两域条款、取证工具箱、判词格式、evals 骨架
-- [ ] v0.2：C 域角色与动画；浏览器截图/剪影/缩略图的采集脚本
+- [x] v0.2：取证采集脚本（剪影 / 缩略 / 灰度 / 模糊 / 裁剪 / 主色 / 网格 / 对比度）
+- [ ] v0.2.1：C 域角色与动画
 - [ ] v0.3：D 域文案、E 域网页；示例库扩充（含"否决立法"案例）
 - [ ] v1.0：稳定条款编号；中英双语；发布到技能市场
 

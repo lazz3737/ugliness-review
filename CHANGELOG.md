@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.2.0 — 2026-11-09
+
+取证自动化。
+
+- 新增 `scripts/evidence.py`（Python 3.9+ / Pillow，离线、确定性）：`kit` / `silhouette` / `thumbs` / `gray` / `blur` / `crop` / `colors` / `grid` / `contrast` 九个子命令。
+- `kit` 一条命令产出灰度图、眯眼模糊、剪影墙、64px 缩略墙、主色与饱和面积统计、`manifest.md`。
+- 新增 `scripts/README.md`：命令表、条款映射与示例。
+- `references/evidence-kit.md`：工具说明改为"脚本命令 + 手工操作"混合；新增"自动化"一节。
+- `SKILL.md`：流程第 3 步接入脚本；文件导航新增 `scripts/evidence.py`。
+
 ## 0.1.1 — 2026-11-09
 
 - 新增 `examples/case-game-ui-round1.md`：小游戏首屏 UI 的匿名化判卷样例（8 条红线 + 8 条存疑），演示数值条款与项目参数豁免的用法。

@@ -32,7 +32,7 @@ license: MIT
 0. **判模式**：确认是交付模式；不是就停，说明本 skill 不适用于草稿。
 1. **选域**：按产物类型选条款域（当前：A 美术场景 / B UI 版式；见 `references/clauses/`）。
 2. **取参数**：项目是否提供度量表、色卡、字号档位、材质档位（见 `references/clauses/project-params.md`）。没有就用默认值，并在报告开头声明"参数来源：默认值"。
-3. **取证**：按 `references/evidence-kit.md` 采集证据。证据不足（低清截图、无原图）时先要求补图，不硬判。
+3. **取证**：按 `references/evidence-kit.md` 采集证据；能自动化的用 `scripts/evidence.py`（一条命令出灰度 / 模糊 / 剪影墙 / 64px 缩略墙 / 主色统计）。证据不足（低清截图、无原图）时先要求补图，不硬判。
 4. **判卷**：逐条三态判定——**通过 / 存疑 / 违规**。违规必须附证据；拿不准的进"存疑"，不擅自拍板。
 5. **出判词**：按 `references/verdict-format.md` 的四段式输出，末尾给汇总表与修复优先级。
 6. **复判**：修复后在同一位置复拍，逐条核对，输出清零表。
@@ -64,5 +64,6 @@ license: MIT
 - `references/clauses/art-scene-props.md` — A 域：道具与场景
 - `references/clauses/ui-layout.md` — B 域：UI 与版式
 - `references/clauses/project-params.md` — 项目参数槽（度量表 / 色卡 / 字号 / 材质）
+- `scripts/evidence.py` — 取证自动化（剪影 / 缩略 / 灰度 / 模糊 / 裁剪 / 主色 / 网格 / 对比度）
 - `examples/` — 匿名化判卷样例
 - `evals/evals.json` — 触发与行为用例
