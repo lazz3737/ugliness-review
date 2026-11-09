@@ -75,6 +75,8 @@ git clone https://github.com/lazz3737/ugliness-review.git
 cp -r ugliness-review ~/.claude/skills/ugliness-review
 ```
 
+**Claude desktop app:** the app keeps its own skill directory and does not read `~/.claude/skills`. Add the skill once through the app's skill settings; the saved entry points at this repo's absolute paths for clauses and scripts, so repo updates are picked up automatically (re-save only when `SKILL.md` itself changes).
+
 ## Repository layout
 
 ```

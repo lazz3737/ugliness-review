@@ -75,6 +75,8 @@ git clone https://github.com/lazz3737/ugliness-review.git
 cp -r ugliness-review ~/.claude/skills/ugliness-review
 ```
 
+**Claude 桌面应用**：桌面应用有独立的技能目录，不读 `~/.claude/skills`。需要在应用的技能设置里保存一次；保存的条目用绝对路径指向本仓库的条款与脚本，所以仓库更新会自动生效（只有 `SKILL.md` 本身改了才需要重新保存）。
+
 ## 目录结构
 
 ```
