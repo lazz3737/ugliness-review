@@ -24,7 +24,7 @@ Works where defects can be enumerated. Does not touch the final judgment of mood
 ## How it works
 
 1. **Mode check**: review only in delivery mode; drafts and exploration are exempt (drafts must stay wild).
-2. **Pick a domain and parameters**: A art/scene · B UI/layout · C character/animation · D copy · E web · F slides/docs · G video/motion — plus the project's own metrics table, palette, type scale, material tiers, spec sheet, breakpoints, export specs.
+2. **Pick a domain and parameters**: A art/scene · B UI/layout · C character/animation · D copy · E web · F slides/docs · G video/motion · H pixel art — plus the project's own metrics table, palette, type scale, material tiers, spec sheet, breakpoints, export specs.
 3. **Collect evidence**: first-glance, squint, grayscale, silhouette wall, 64px thumbnails, tangent zoom, color sampling, frame extraction, subtitles, copy lint (see `references/evidence-kit.md`).
 4. **Three-state verdict**: pass / uncertain / violation. Violations require evidence; red lines must be at zero before delivery.
 5. **Re-review and legislate**: re-shoot from the same position and check item by item; verdicts the user rejects are written back into the clauses — **a rejection is training data**.
@@ -93,6 +93,7 @@ ugliness-review/
 │       ├── web-pages.md            # E · web pages
 │       ├── slides-docs.md          # F · slides & docs
 │       ├── video-motion.md         # G · video & motion
+│       ├── pixel-art.md            # H · pixel art
 │       └── project-params.md       # project parameter slots
 ├── scripts/
 │   ├── evidence.py                 # image evidence
@@ -122,6 +123,7 @@ ugliness-review/
 - [x] v0.5 — rejection case library (template + 2 seed cases)
 - [x] v0.6 — Claude Code plugin marketplace packaging
 - [x] v1.0 — stable clause IDs; bilingual interface; installable from the plugin marketplace
+- [x] v1.1 — H pixel art (8 R + 2 T), added from the first external playtest
 
 ## Contributing
 

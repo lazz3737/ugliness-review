@@ -1,6 +1,6 @@
 ---
 name: ugliness-review
-description: "审丑评审（ugliness-review）——对交付前的视觉产物（游戏美术、UI、版式、网页、PPT、角色动画、视频、文案）逐条找出可列举的缺陷，输出【条款】【判定】【证据】【修法】判词；只判丑，不判美。Use when the user asks for a pre-delivery review, QA gate, or critique of visual work: return clause-referenced defects with evidence and fixes; never decide what is beautiful. Not for drafts, exploration, or generation tasks."
+description: "审丑评审（ugliness-review）——对交付前的视觉产物（游戏美术、UI、版式、网页、PPT、角色动画、视频、像素画、文案）逐条找出可列举的缺陷，输出【条款】【判定】【证据】【修法】判词；只判丑，不判美。Use when the user asks for a pre-delivery review, QA gate, or critique of visual work: return clause-referenced defects with evidence and fixes; never decide what is beautiful. Not for drafts, exploration, or generation tasks."
 license: MIT
 ---
 
@@ -30,7 +30,7 @@ license: MIT
 ## 流程
 
 0. **判模式**：确认是交付模式；不是就停，说明本 skill 不适用于草稿。
-1. **选域**：按产物类型选条款域（当前：A 美术场景 / B UI 版式 / C 角色与动画 / D 文案 / E 网页 / F PPT 与文档 / G 视频与动效；见 `references/clauses/`）。
+1. **选域**：按产物类型选条款域（当前：A 美术场景 / B UI 版式 / C 角色与动画 / D 文案 / E 网页 / F PPT 与文档 / G 视频与动效 / H 像素画；见 `references/clauses/`）。
 2. **取参数**：项目是否提供度量表、色卡、字号、材质、角色规格卡、文案声音、网页断点、画幅与导出规格（见 `references/clauses/project-params.md`）。没有就用默认值，并在报告开头声明“参数来源：默认值”。
 3. **取证**：按 `references/evidence-kit.md` 采集证据；能自动化的用脚本——`scripts/evidence.py`（灰度 / 模糊 / 剪影墙 / 缩略墙 / 主色 / 网格 / 对比度）与 `scripts/copy_lint.py`（标点 / 空格 / 句长 / 黑名单）。证据不足（低清截图、无原图、无关键帧）时先要求补图，不硬判。
 4. **判卷**：逐条三态判定——**通过 / 存疑 / 违规**。违规必须附证据；拿不准的进“存疑”，不擅自拍板。
@@ -68,6 +68,7 @@ license: MIT
 - `references/clauses/web-pages.md` — E 域：网页
 - `references/clauses/slides-docs.md` — F 域：PPT 与文档版式
 - `references/clauses/video-motion.md` — G 域：视频与动效
+- `references/clauses/pixel-art.md` — H 域：像素画
 - `references/clauses/project-params.md` — 项目参数槽
 - `scripts/evidence.py` — 图像取证（剪影 / 缩略 / 灰度 / 模糊 / 裁剪 / 主色 / 网格 / 对比度）
 - `scripts/copy_lint.py` — 文案检查（标点 / 空格 / 句长 / 黑名单）

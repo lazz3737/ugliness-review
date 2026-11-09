@@ -106,3 +106,16 @@
 
 - **G-T1** One look across the piece: palette, type, subtitle style, transitions.
 - **G-T2** Export specs per platform; no stretching across aspect ratios.
+
+## H · Pixel art — `pixel-art.md`
+
+- **H-R1** Integer scaling and pixel grid; nearest-neighbor only.
+- **H-R2** One pixel density (PPU) across assets and UI.
+- **H-R3** One outline strategy: all / selective / none; 1px, palette colors.
+- **H-R4** Fixed palette (e.g. ≤32 colors); dithering instead of gradients.
+- **H-R5** No anti-aliasing or sub-pixel movement.
+- **H-R6** Pixel font at integer multiples of its native size.
+- **H-R7** Silhouette and ≥15% luminance contrast; readable at 64px.
+- **H-R8** One frame rate and frame count; integer-pixel motion.
+- **H-T1** Consistent dithering patterns.
+- **H-T2** Style purity: no vector / 3D / photo assets mixed in.
