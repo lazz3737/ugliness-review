@@ -1,6 +1,6 @@
 ---
 name: ugliness-review
-description: 审丑评审（ugliness-review）——对交付前的视觉产物（游戏美术、UI、版式、网页、PPT、角色动画、视频、文案）逐条找出可列举的缺陷，输出【条款】【判定】【证据】【修法】判词；只判丑，不判美。Use when the user asks for a pre-delivery review, QA gate, or critique of visual work: return clause-referenced defects with evidence and fixes; never decide what is beautiful. Not for drafts, exploration, or generation tasks.
+description: "审丑评审（ugliness-review）——对交付前的视觉产物（游戏美术、UI、版式、网页、PPT、角色动画、视频、文案）逐条找出可列举的缺陷，输出【条款】【判定】【证据】【修法】判词；只判丑，不判美。Use when the user asks for a pre-delivery review, QA gate, or critique of visual work: return clause-referenced defects with evidence and fixes; never decide what is beautiful. Not for drafts, exploration, or generation tasks."
 license: MIT
 ---
 
