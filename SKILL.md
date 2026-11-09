@@ -72,4 +72,5 @@ license: MIT
 - `scripts/evidence.py` — 图像取证（剪影 / 缩略 / 灰度 / 模糊 / 裁剪 / 主色 / 网格 / 对比度）
 - `scripts/copy_lint.py` — 文案检查（标点 / 空格 / 句长 / 黑名单）
 - `examples/` — 匿名化判卷样例
+- `cases/` — 否决立法案例库（模板 + 真实案例）
 - `evals/evals.json` — 触发与行为用例

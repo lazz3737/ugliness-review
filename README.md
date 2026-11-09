@@ -89,6 +89,7 @@ ugliness-review/
 │   ├── copy_lint.py                # 文案检查
 │   └── README.md
 ├── examples/                       # 匿名化判卷样例
+├── cases/                          # 否决立法案例库
 ├── evals/evals.json                # 触发与行为用例
 ├── CHANGELOG.md
 └── LICENSE
@@ -107,7 +108,7 @@ ugliness-review/
 - [x] v0.2.1：C 域角色与动画（12 R + 2 T）
 - [x] v0.3：D 域文案（10 R + 2 T）、E 域网页（11 R + 2 T）、copy_lint 脚本
 - [x] v0.4：F 域 PPT / 文档（9 R + 2 T）、G 域视频 / 动效（10 R + 2 T）
-- [ ] v0.5：示例库扩充（含"否决立法"案例）
+- [x] v0.5：否决立法案例库（模板 + 2 个种子案例）
 - [ ] v1.0：稳定条款编号；中英双语；发布到技能市场
 
 ## 贡献
