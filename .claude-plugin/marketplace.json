@@ -1,0 +1,12 @@
+{
+  "name": "ugliness-review",
+  "owner": { "name": "lazz3737" },
+  "plugins": [
+    {
+      "name": "ugliness-review",
+      "source": "./",
+      "description": "An agent skill that finds what fails, never decides what is beautiful. 审丑评审：美归人判，丑归 AI 判。",
+      "version": "0.6.0"
+    }
+  ]
+}

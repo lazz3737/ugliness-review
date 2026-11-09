@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.6.0 — 2026-11-09
+
+插件市场打包。
+
+- 新增 `.claude-plugin/plugin.json` 与 `.claude-plugin/marketplace.json`，仓库可直接作为 Claude Code 插件市场安装。
+- README 安装节增加插件安装命令。
+
 ## 0.5.0 — 2026-11-09
 
 否决立法案例库。

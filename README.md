@@ -59,6 +59,13 @@ python scripts/copy_lint.py 文案.md
 npx skills add https://github.com/lazz3737/ugliness-review --skill ugliness-review
 ```
 
+Claude Code 也可以走插件市场：
+
+```
+/plugin marketplace add lazz3737/ugliness-review
+/plugin install ugliness-review@ugliness-review
+```
+
 或手动放进技能目录：
 
 ```bash
@@ -88,6 +95,7 @@ ugliness-review/
 │   ├── evidence.py                 # 图像取证
 │   ├── copy_lint.py                # 文案检查
 │   └── README.md
+├── .claude-plugin/                 # Claude Code 插件清单
 ├── examples/                       # 匿名化判卷样例
 ├── cases/                          # 否决立法案例库
 ├── evals/evals.json                # 触发与行为用例
