@@ -129,7 +129,7 @@ ugliness-review/
 
 ## Contributing
 
-New domains, sharper "what violations look like", and anonymized cases are welcome. Minimum requirements for a new domain: `references/clauses/README.md`.
+New domains, sharper "what violations look like", and anonymized cases are welcome. See `CONTRIBUTING.md`. Minimum requirements for a new domain: `references/clauses/README.md`.
 
 One rule: **add only "what counts as failing", never "what counts as good".**
 

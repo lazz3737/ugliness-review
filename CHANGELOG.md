@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.2.7 — 2026-11-09
+
+工程配套。
+
+- 新增 GitHub Actions CI：脚本编译、JSON 清单校验、全库文案检查、eval 题库校验、取证工具冒烟测试。
+- 新增 `CONTRIBUTING.md`、Issue 模板（bug / clause proposal）、PR 模板。
+- README 贡献节链接到 CONTRIBUTING。
+
 ## 1.2.6 — 2026-11-09
 
 复判格式加锁（Eval Case 9 部分通过）。

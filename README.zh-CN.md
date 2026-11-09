@@ -129,7 +129,7 @@ ugliness-review/
 
 ## 贡献
 
-欢迎新增条款域、补充“违反的样子”、贡献匿名化案例。新增域的最低要求见 `references/clauses/README.md`。
+欢迎新增条款域、补充“违反的样子”、贡献匿名化案例。详见 `CONTRIBUTING.md`；新增域的最低要求见 `references/clauses/README.md`。
 
 原则只有一条：**只加“什么算不及格”，不加“什么是好”。**
 
