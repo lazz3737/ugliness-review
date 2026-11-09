@@ -26,10 +26,10 @@ import re
 import sys
 from pathlib import Path
 
-VERSION = "0.1.0"
+VERSION = "0.2.0"
 
 CJK = re.compile(r"[㐀-䶿一-鿿]")
-TEXT_EXTS = {".md", ".txt", ".json", ".html", ".htm", ".jsx", ".tsx", ".vue", ".svelte"}
+TEXT_EXTS = {".md", ".txt", ".srt"}
 
 HALF_PUNCT = ",.!?;:()"
 HALF_TO_FULL = {",": "，", ".": "。", "!": "！", "?": "？", ";": "；", ":": "：",
@@ -70,8 +70,11 @@ def add(findings: list[dict], path: str, line: int, col: int, rule: str,
 def check_line(path: str, lineno: int, line: str, max_sentence: int,
                banned_zh: list[str], banned_en: list[str],
                findings: list[dict]) -> None:
+    original = line
     n = len(line)
-    snippet_full = line.strip()[:80]
+    snippet_full = original.strip()[:80]
+    # Mask inline code so code snippets and YAML examples are not linted as prose.
+    line = re.sub(r"`[^`]*`", lambda m: " " * len(m.group(0)), line)
 
     for i, ch in enumerate(line):
         prev = line[i - 1] if i > 0 else ""
@@ -200,7 +203,21 @@ def main(argv: list[str] | None = None) -> None:
         check_line("<text>", 1, args.text, args.max_sentence, banned_zh, banned_en, findings)
     else:
         for path in collect_inputs(args.inputs):
-            for lineno, line in enumerate(iter_lines(path), 1):
+            lines = iter_lines(path)
+            in_fence = False
+            in_front = bool(lines) and lines[0].strip() == "---"
+            for lineno, line in enumerate(lines, 1):
+                if in_front:
+                    if lineno == 1:
+                        continue
+                    if line.strip() == "---":
+                        in_front = False
+                    continue
+                if line.lstrip().startswith("```"):
+                    in_fence = not in_fence
+                    continue
+                if in_fence:
+                    continue
                 check_line(str(path), lineno, line, args.max_sentence,
                            banned_zh, banned_en, findings)
 

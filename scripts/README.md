@@ -55,7 +55,7 @@ python scripts/copy_lint.py --text "好的,我马上来."
 | --- | --- | --- |
 | 中文语境半角标点 | D-R5 | 违规 |
 | 直引号混排 | D-R5 | 违规 |
-| “...” / “。。。” | D-R5 | 违规 |
+| `...` / `。。。` | D-R5 | 违规 |
 | 连续标点、空括号 | D-R5 | 违规 |
 | 中西文缺空格、连续空格 | D-R5 | 提示 |
 | 句长超上限 | D-T1 | 提示 |
@@ -75,7 +75,7 @@ python scripts/evidence.py thumbs renders/ --size 64 -o evidence
 # 切线检查：把交界处放大 3 倍
 python scripts/evidence.py crop ui.png --box 900,380,1060,500 --zoom 3
 
-# 数饱和面积与主色（A-R6 的"饱和面积 ≤15%"）
+# 数饱和面积与主色（A-R6 的“饱和面积 ≤15%”）
 python scripts/evidence.py colors ui.png --top 8
 
 # 8pt 网格 + 5% 边距线
@@ -89,7 +89,7 @@ python scripts/evidence.py contrast ui.png --fg 300,640 --bg 200,700
 
 - 只支持栅格图（PNG / JPG / WebP / BMP / GIF）；GLB、SVG、PDF 请先导出图片。
 - 有透明通道的资产，剪影直接用 alpha，最准；无透明通道时自动估计背景亮度（四角采样）做阈值，复杂背景可用 `--threshold` 或 `--invert` 调整。
-- `colors` 的"饱和面积"按 HSV 饱和度 ≥0.35 统计，是判卷参考值，不是色彩科学结论。
+- `colors` 的“饱和面积”按 HSV 饱和度 ≥0.35 统计，是判卷参考值，不是色彩科学结论。
 - 所有输出都是确定性的：同一张图、同一参数，结果一致，便于复判对照。
 
 ## 版本

@@ -1,7 +1,7 @@
 # 否决立法案例库
 
 > 这里存的是**判词的反对票**：用户否掉判词、工具改正判词、或一次否决最终变成条款修订的记录。
-> 条款告诉 AI "怎么判"，案例告诉 AI "判错了怎么改"。这是本 skill 里唯一靠使用攒出来的部分。
+> 条款告诉 AI “怎么判”，案例告诉 AI “判错了怎么改”。这是本 skill 里唯一靠使用攒出来的部分。
 
 ## 案例类型
 
@@ -27,5 +27,6 @@
 
 ## 现有案例
 
-- [2026-11-08-ugliness-as-principle.md](2026-11-08-ugliness-as-principle.md) — 立法：从"炼化高级感"到"只判丑"
-- [2026-11-09-saturation-measurement.md](2026-11-09-saturation-measurement.md) — 改判：目测"信号色争宠"被 0.3% 的实测推翻
+- [2026-11-08-ugliness-as-principle.md](2026-11-08-ugliness-as-principle.md) — 立法：从“炼化高级感”到“只判丑”
+- [2026-11-09-saturation-measurement.md](2026-11-09-saturation-measurement.md) — 改判：目测“信号色争宠”被 0.3% 的实测推翻
+- [2026-11-09-dogfood-self-review.md](2026-11-09-dogfood-self-review.md) — 改判：自审发现 linter 把代码当正文
