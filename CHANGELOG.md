@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.2.1 — 2026-11-09
+
+- `SKILL.md` 取证纪律：先一次性跑 `kit` 与 `contrast`/`palette` 拿数据，再判；不许逐像素手算（外部试跑慢的主因）。
+- `run_evals.py` 跑表增加建议顺序：先轻后重。
+
 ## 1.2.0 — 2026-11-09
 
 Eval runner。
