@@ -1,7 +1,7 @@
 {
   "name": "ugliness-review",
   "description": "An agent skill that finds what fails, never decides what is beautiful. 审丑评审：美归人判，丑归 AI 判。",
-  "version": "1.2.10",
+  "version": "1.2.11",
   "author": { "name": "lazz3737" },
   "license": "MIT",
   "homepage": "https://github.com/lazz3737/ugliness-review",
