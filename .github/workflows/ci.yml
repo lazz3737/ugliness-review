@@ -1,0 +1,54 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install pillow
+
+      - name: Compile scripts
+        run: python -m py_compile scripts/evidence.py scripts/copy_lint.py scripts/run_evals.py
+
+      - name: Validate JSON manifests
+        run: |
+          python - <<'PY'
+          import json
+          for path in ["evals/evals.json", ".claude-plugin/plugin.json", ".claude-plugin/marketplace.json"]:
+              with open(path, encoding="utf-8") as fh:
+                  json.load(fh)
+              print("ok:", path)
+          PY
+
+      - name: Copy lint (repo docs)
+        run: python scripts/copy_lint.py .
+
+      - name: Eval bank check
+        run: python scripts/run_evals.py --check
+
+      - name: Evidence kit smoke test
+        run: |
+          python - <<'PY'
+          from PIL import Image, ImageDraw
+          im = Image.new("RGBA", (128, 128), (255, 255, 255, 0))
+          ImageDraw.Draw(im).ellipse([24, 24, 104, 104], fill=(20, 20, 20, 255))
+          im.save("/tmp/test.png")
+          PY
+          python scripts/evidence.py kit /tmp/test.png -o /tmp/evidence
+          test -f /tmp/evidence/manifest.md
+          test -f /tmp/evidence/wall_thumbs_64.png
+          echo "evidence kit ok"
