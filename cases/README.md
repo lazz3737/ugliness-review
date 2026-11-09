@@ -32,3 +32,4 @@
 - [2026-11-09-saturation-measurement.md](2026-11-09-saturation-measurement.md) — 改判：目测“信号色争宠”被 0.3% 的实测推翻
 - [2026-11-09-dogfood-self-review.md](2026-11-09-dogfood-self-review.md) — 改判：自审发现 linter 把代码当正文
 - [2026-11-09-external-pixel-playtest.md](2026-11-09-external-pixel-playtest.md) — 外部试跑：像素画首屏，促成 H 域诞生
+- [2026-11-09-pixel-rerun-h-domain.md](2026-11-09-pixel-rerun-h-domain.md) — 复跑验收：H 域六条红线全部带数字，催生 palette/lightness 工具

@@ -40,6 +40,8 @@ evidence/
 | `colors` | 主色占比 + 饱和面积占比 | A-R6、B-R7 |
 | `grid` | 网格 + 5% 边距参考线 | B-R5、B-R6、E-R3 |
 | `contrast` | 两点 WCAG 对比度 | E-R5 |
+| `palette` | 全图不同颜色数（可 `--box` 查局部） | H-R4 |
+| `lightness` | 两点 Lab L* 差 | H-R7 |
 
 ## 文案检查（copy_lint.py）
 
@@ -83,6 +85,10 @@ python scripts/evidence.py grid ui.png --step 8 --margin 5
 
 # 文字对比度
 python scripts/evidence.py contrast ui.png --fg 300,640 --bg 200,700
+
+# 像素色板与明度差
+python scripts/evidence.py palette sprite.png
+python scripts/evidence.py lightness sprite.png --a 940,470 --b 1150,300
 ```
 
 ## 说明

@@ -80,6 +80,7 @@
 - **用途**：量化色彩使用。
 - **操作**：`python scripts/evidence.py colors <img> --top 8`。
 - **判什么**：A-R6 色彩克制、B-R7 色彩同源。
+- **像素色板**：`python scripts/evidence.py palette <img>`（全图色数；`--box` 查局部），对应 H-R4。
 - **证据**：主色表 + 饱和面积占比。
 
 ### 10. 网格与参考线
@@ -101,6 +102,7 @@
 - **用途**：检查文字与控件可读性。
 - **操作**：`python scripts/evidence.py contrast <img> --fg x,y --bg x,y`。
 - **判什么**：E-R5 可访问性下限（正文 ≥4.5:1，大字与非文本 ≥3:1）。
+- **明度差（H-R7）**：`python scripts/evidence.py lightness <img> --a x,y --b x,y`，Lab L* 差 ≥15。
 - **证据**：色值 + 对比度数值。
 
 ### 13. 并排基准件

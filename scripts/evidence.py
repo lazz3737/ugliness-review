@@ -14,6 +14,8 @@ Subcommands:
   colors      dominant colors + saturated-area estimate
   grid        grid + margin overlay
   contrast    WCAG contrast ratio between two sampled points
+  palette     distinct color count + top colors (pixel-art palette)
+  lightness   Lab L* difference between two sampled points (H-R7)
 
 Examples:
   python scripts/evidence.py kit ui.png renders/*.png -o evidence
@@ -28,6 +30,7 @@ Only reads raster files (PNG / JPG / WebP / BMP / GIF). Requires Pillow:
 from __future__ import annotations
 
 import argparse
+from collections import Counter
 import colorsys
 import math
 import sys
@@ -36,7 +39,7 @@ from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFilter, ImageFont, ImageOps
 
-VERSION = "0.2.0"
+VERSION = "0.3.0"
 IMAGE_EXTS = {".png", ".jpg", ".jpeg", ".webp", ".bmp", ".gif"}
 DEFAULT_OUT = "evidence"
 SAT_THRESHOLD = 0.35  # HSV saturation above this counts as "saturated" for area %
@@ -292,6 +295,17 @@ def sample_avg(im: Image.Image, point: tuple[int, int], radius: int = 2) -> tupl
     )
 
 
+def lab_l(rgb: tuple[int, int, int]) -> float:
+    """CIELAB L* (0-100) of an sRGB color."""
+    def channel(c: int) -> float:
+        v = c / 255
+        return v / 12.92 if v <= 0.04045 else ((v + 0.055) / 1.055) ** 2.4
+
+    r, g, b = (channel(v) for v in rgb)
+    y = 0.2126 * r + 0.7152 * g + 0.0722 * b
+    return 116 * (y ** (1 / 3)) - 16 if y > 0.008856 else 903.3 * y
+
+
 # ---------------------------------------------------------------- commands
 
 def cmd_silhouette(args: argparse.Namespace) -> None:
@@ -451,6 +465,40 @@ def cmd_kit(args: argparse.Namespace) -> None:
     print(f"\nkit -> {outdir}/  (manifest.md, gray, blur, silhouette, two walls)")
 
 
+def cmd_palette(args: argparse.Namespace) -> None:
+    inputs = expand_inputs(args.inputs)
+    for path in inputs:
+        im = load(path)
+        if args.box:
+            x1, y1, x2, y2 = parse_box(args.box)
+            im = im.crop((x1, y1, x2, y2))
+        rgba = as_rgba(im)
+        counts: Counter = Counter()
+        for pixel in rgba.getdata():
+            if pixel[3] == 0:
+                continue
+            counts[pixel[:3]] += 1
+        total = len(counts)
+        pixels = sum(counts.values()) or 1
+        print(f"{path.name}: {im.width}x{im.height} distinct colors = {total}")
+        for (r, g, b), n in counts.most_common(args.top):
+            print(f"  #{r:02x}{g:02x}{b:02x}  {100 * n / pixels:.1f}%")
+    print("reminder: H-R4 — distinct colors must not exceed the project palette capacity.")
+
+
+def cmd_lightness(args: argparse.Namespace) -> None:
+    path = Path(args.input)
+    if not path.is_file():
+        die(f"input not found: {path}")
+    im = load(path)
+    a, b = parse_point(args.a), parse_point(args.b)
+    ca, cb = sample_avg(im, a), sample_avg(im, b)
+    la, lb = lab_l(ca), lab_l(cb)
+    print(f"a {a} #{ca[0]:02x}{ca[1]:02x}{ca[2]:02x}  L*={la:.1f}")
+    print(f"b {b} #{cb[0]:02x}{cb[1]:02x}{cb[2]:02x}  L*={lb:.1f}")
+    print(f"delta L* = {abs(la - lb):.1f}  (H-R7 threshold: >=15)")
+
+
 # ---------------------------------------------------------------- cli
 
 def build_parser() -> argparse.ArgumentParser:
@@ -523,6 +571,18 @@ def build_parser() -> argparse.ArgumentParser:
     sp.add_argument("--bg", required=True, help="x,y of background")
     sp.add_argument("-o", "--out", default=DEFAULT_OUT)
     sp.set_defaults(func=cmd_contrast)
+
+    sp = sub.add_parser("palette", help="distinct color count (pixel-art palette)")
+    common(sp, out=False)
+    sp.add_argument("--box", help="x1,y1,x2,y2 region")
+    sp.add_argument("--top", type=int, default=8)
+    sp.set_defaults(func=cmd_palette)
+
+    sp = sub.add_parser("lightness", help="Lab L* difference between two points")
+    sp.add_argument("input")
+    sp.add_argument("--a", required=True, help="x,y")
+    sp.add_argument("--b", required=True, help="x,y")
+    sp.set_defaults(func=cmd_lightness)
 
     return p
 
