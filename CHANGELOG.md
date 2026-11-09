@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.2.0 — 2026-11-09
+
+Eval runner。
+
+- 新增 `scripts/run_evals.py`：`--check` 校验题库结构；`--sheet` 生成人工跑表；`--run` 在已装 Claude CLI 时逐条自动跑并落盘。
+- 跑表含每条用例的 prompt、期望、断言与 pass/fail 记录列；`evals/runs/` 与 `run_sheet.md` 已 gitignore。
+- 文档补充：触发类用例必须在全新会话中运行。
+
 ## 1.1.2 — 2026-11-09
 
 - H-R4 / H-R7 补齐测量口径：色板用全图色数、明度用 Lab L* 差。

@@ -51,7 +51,7 @@ python scripts/evidence.py kit ui.png renders/ -o evidence
 python scripts/copy_lint.py copy.md
 ```
 
-See `scripts/README.md` for commands and clause mapping.
+Evale runner: `python scripts/run_evals.py --check` validates the case file; `--sheet` generates a manual run sheet. See `scripts/README.md`.
 
 ## Install
 

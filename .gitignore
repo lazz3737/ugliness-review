@@ -22,3 +22,7 @@ npm-debug.log*
 # Python
 __pycache__/
 *.pyc
+
+# Eval runs
+/evals/runs/
+/evals/run_sheet.md

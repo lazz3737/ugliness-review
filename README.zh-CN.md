@@ -51,7 +51,7 @@ python scripts/evidence.py kit ui.png renders/ -o evidence
 python scripts/copy_lint.py 文案.md
 ```
 
-用法与条款映射见 `scripts/README.md`。
+Eval 题库：`python scripts/run_evals.py --check` 校验；`--sheet` 生成人工跑表。用法与条款映射见 `scripts/README.md`。
 
 ## 安装
 

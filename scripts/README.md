@@ -65,6 +65,19 @@ python scripts/copy_lint.py --text "好的,我马上来."
 
 `--json` 输出机器可读结果；有违规时退出码为 1，可接 CI。
 
+## Eval 跑表（run_evals.py）
+
+```bash
+python scripts/run_evals.py --check   # 校验 evals/evals.json 结构
+python scripts/run_evals.py --sheet   # 生成 evals/run_sheet.md（人工跑表）
+python scripts/run_evals.py --run     # 已安装 Claude CLI 时逐条自动跑
+```
+
+- **触发类用例必须在全新会话跑**：skill 在会话启动时加载，旧会话测不了触发。
+- 跑表里每条含 prompt、期望、断言与 pass/fail 记录列；结果留在 `evals/runs/`（已 gitignore）。
+- `--run` 需要 Claude CLI（`npm i -g @anthropic-ai/claude-code`）；没装时请用 `--sheet`。
+- `--only 1,3` 选跑，`--limit N` 限条数，`--timeout` 单条超时。
+
 ## 常用示例
 
 ```bash
